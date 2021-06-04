@@ -18,8 +18,7 @@ from django.urls import path
 from kbo_Schedule import views as kboschview
 from kbo_Rank import views as kborankview
 from kleague_Schedule import views as kleagueschview
-
-
+from kleague_Rank import views as kleaguerankview
 
 
 urlpatterns = [
@@ -28,5 +27,6 @@ urlpatterns = [
     path('kboschedule/<str:pk>/', kboschview.schedule_detail),
     path('kborank/', kborankview.rank_list),
     path('kleagueschedule/', kleagueschview.schedule_list),
-    path('kleagueschedule/<str:pk>/', kleagueschview.schedule_detail)
+    path('kleagueschedule/<str:pk>/', kleagueschview.schedule_detail),
+    path('kleaguerank/', kleaguerankview.rank_list)
 ]

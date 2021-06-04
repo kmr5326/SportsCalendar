@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'kbo_Schedule',
     'kbo_Rank',
-    'kleague_Schedule'
+    'kleague_Schedule',
+    'kleague_Rank'
 ]
 
 MIDDLEWARE = [
