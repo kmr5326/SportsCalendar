@@ -9,6 +9,7 @@ class Schedule(models.Model):
     game4 = models.CharField(max_length=50, null=True)
     game5 = models.CharField(max_length=50, null=True)
     game6 = models.CharField(max_length=50, null=True)
+    dataCnt = models.CharField(max_length=10, default='0')
 
 
 

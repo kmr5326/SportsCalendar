@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from kbo_Schedule import views as kboschview
 from kbo_Rank import views as kborankview
 from kleague_Schedule import views as kleagueschview
@@ -28,5 +28,7 @@ urlpatterns = [
     path('kborank/', kborankview.rank_list),
     path('kleagueschedule/', kleagueschview.schedule_list),
     path('kleagueschedule/<str:pk>/', kleagueschview.schedule_detail),
-    path('kleaguerank/', kleaguerankview.rank_list)
+    path('kleaguerank/', kleaguerankview.rank_list),
+    path('rest-auth/', include('rest_auth.urls')),
+    path('rest-auth/signup/', include('rest_auth.registration.urls'))
 ]

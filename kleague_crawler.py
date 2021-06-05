@@ -34,6 +34,7 @@ for i in range(0,12):
             cnt += 1
             d["game"+str(cnt)] = tds[1].text + ' [' + tds[3].text + ']'
         print(d)
+        d["dataCnt"] = str(cnt)
         collection.replace_one({"_id": date}, d, upsert=True)
 
 
