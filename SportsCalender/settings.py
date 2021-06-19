@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'kleague_Schedule',
     'kleague_Rank',
     'board',
-    #'SportsCalender.apps.MyAppConfig'
+    'SportsCalender.apps.MyAppConfig'
 ]
 
 MIDDLEWARE = [

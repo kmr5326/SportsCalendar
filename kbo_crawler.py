@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from selenium import webdriver
 import pymongo
 
@@ -77,7 +79,7 @@ for row in rows:
             d = {}
             for i in range(1, len(li_list)):
                 d["game" + str(i)] = li_list[i]
-            day = m+"."+li_list[0]
+            day = datetime.today().strftime('%m')+"."+li_list[0]
             collection.replace_one({"_id": day}, d, upsert=True)
 
 
