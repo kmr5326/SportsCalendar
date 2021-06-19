@@ -47,7 +47,9 @@ INSTALLED_APPS = [
     'kbo_Schedule',
     'kbo_Rank',
     'kleague_Schedule',
-    'kleague_Rank'
+    'kleague_Rank',
+    'board',
+    #'SportsCalender.apps.MyAppConfig'
 ]
 
 MIDDLEWARE = [
@@ -144,4 +146,11 @@ REST_FRAMEWORK = {
 }
 
 SITE_ID = 1
+
+ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_EMAIL_REQUIRED = True
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+
 

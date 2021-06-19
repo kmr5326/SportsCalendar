@@ -35,4 +35,4 @@ for row in rows:
         }
         collection.replace_one({"_id": str(cnt)}, d, upsert=True)
 
-
+driver.quit()

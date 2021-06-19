@@ -19,6 +19,7 @@ from kbo_Schedule import views as kboschview
 from kbo_Rank import views as kborankview
 from kleague_Schedule import views as kleagueschview
 from kleague_Rank import views as kleaguerankview
+from board import views as boardview
 
 
 urlpatterns = [
@@ -30,5 +31,8 @@ urlpatterns = [
     path('kleagueschedule/<str:pk>/', kleagueschview.schedule_detail),
     path('kleaguerank/', kleaguerankview.rank_list),
     path('rest-auth/', include('rest_auth.urls')),
-    path('rest-auth/signup/', include('rest_auth.registration.urls'))
+    path('rest-auth/signup/', include('rest_auth.registration.urls')),
+    path('accounts/', include('allauth.urls')),
+    path('board/', boardview.board_list),
+    path('board/<str:pk>/', boardview.board_detail)
 ]

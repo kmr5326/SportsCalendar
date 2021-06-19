@@ -13,6 +13,8 @@ driver.get('https://www.kleague.com/schedule?ch=073944&select_league=1')
 
 collection = db.get_collection('kleague_Schedule_schedule')
 
+#모든 달(월별) 크롤링
+'''
 month = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
 for i in range(0,12):
     m = driver.find_element_by_id("vw_month")
@@ -36,9 +38,27 @@ for i in range(0,12):
         print(d)
         d["dataCnt"] = str(cnt)
         collection.replace_one({"_id": date}, d, upsert=True)
+'''
 
+#이번 달만 크롤링
+schedule_list = driver.find_element_by_class_name('data-body')
+tables = schedule_list.find_elements_by_tag_name("table")
+for t in tables:
+    tbody = t.find_element_by_tag_name("tbody")
+    rows = tbody.find_elements_by_tag_name("tr")
+    print(rows[0].get_attribute("id")[:-1])
+    date = rows[0].get_attribute("id")[:-1]
+    cnt = 0
+    d = {}
+    for row in rows:
+        tds = row.find_elements_by_tag_name("td")
+        #print(tds[1].text + ' / '+tds[3].text)
+        cnt += 1
+        d["game"+str(cnt)] = tds[1].text + ' [' + tds[3].text + ']'
+    print(d)
+    d["dataCnt"] = str(cnt)
+    collection.replace_one({"_id": date}, d, upsert=True)
 
-
-
+driver.quit()
 
 

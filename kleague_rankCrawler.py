@@ -33,8 +33,9 @@ for row in rows:
         "goal": split[5],
         "lost": split[6]
     }
-    #collection.replace_one({"_id": str(cnt)}, d, upsert=True)
+    collection.replace_one({"_id": str(cnt)}, d, upsert=True)
     print(d)
 
+driver.quit()
 
 
